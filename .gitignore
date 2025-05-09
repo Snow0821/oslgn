@@ -169,3 +169,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# in-project 
+data/
+
+#paper sideeffects
+.aux
+.bbl
+.blg
+.fdb_latexmk
+.fls
+.log

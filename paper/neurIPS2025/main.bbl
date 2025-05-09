@@ -1,0 +1,18 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Author(2023)]{example2023}
+A.~Author.
+\newblock Title of the related paper.
+\newblock \emph{Journal Name}, X:\penalty0 Y--Z, 2023.
+
+\bibitem[Author(2024)]{example2024}
+B.~Author.
+\newblock Title of the related conference paper.
+\newblock In \emph{Proceedings of Conference Name}, pages A--B, 2024.
+
+\end{thebibliography}
