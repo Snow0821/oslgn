@@ -1,6 +1,12 @@
 \begin{abstract}
+    Neural networks often rely on dense, continuous operations that obscure interpretability and complicate optimization. 
     We propose Operand Selective Logic Gated Neural Networks (OSLGN), 
-    an architecure that 
-    Inspirated by
+    a novel architecture that performs computation using dynamically selected binary logic operations. 
+    Each unit in OSLGN selects two inputs and one logic gate to apply, enabling discrete, symbolic computation throughout the network. 
+    To support training, we adopt a strategy that directly discretizes both operand and operator choices while preserving gradient flow, 
+    avoiding post-training quantization errors. 
+    This modular approach yields improved traceability, logical transparency, and computational efficiency. 
+    Experiments on MNIST demonstrate that OSLGN achieves competitive performance with significantly fewer logic operations compared to traditional binary networks. 
+    Our results highlight the potential of logic-driven architectures to bridge symbolic reasoning and efficient learning.
     
 \end{abstract}
