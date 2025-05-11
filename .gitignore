@@ -174,9 +174,10 @@ cython_debug/
 data/
 
 #paper sideeffects
-.aux
-.bbl
-.blg
-.fdb_latexmk
-.fls
-.log
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
