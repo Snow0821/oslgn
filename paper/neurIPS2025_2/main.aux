@@ -2,25 +2,118 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\bibstyle{plainnat}
-\bibdata{references}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Model Architecture}{2}{section.2}\protected@file@percent }
+\citation{petersen2022deep,manhaeve2018deepproblog}
+\citation{petersen2022deep}
+\citation{watts1998collective,javaheripi2019swnet}
+\citation{shazeer2017outrageously}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Contributions.}{1}{section*.1}\protected@file@percent }
+\citation{petersen2022deep}
+\citation{petersen2022deep}
+\citation{watts1998collective,javaheripi2019swnet}
+\@writefile{toc}{\contentsline {section}{\numberline {2}OSLGN Architecture}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Overview}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  A single OSLGN logic unit. Operand selectors choose relevant inputs, and a differentiable operator module applies one of 16 logic gates. }}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:oslgn-block}{{1}{2}{A single OSLGN logic unit. Operand selectors choose relevant inputs, and a differentiable operator module applies one of 16 logic gates}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Operand Selection}{2}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Operation Selection}{2}{subsection.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Binary and Ternary Neural Networks}{2}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Differentiable Logic Gate Networks}{2}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Operand/Operator Selection in Modular Systems}{2}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Neural-Symbolic Reasoning}{2}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{2}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}MNIST}{2}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}CIFAR10}{2}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}CIFAR100}{2}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{2}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Interpretability and Symbolic Traceability}{2}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Comparison with Related Architectures}{2}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations and Future Extensions}{2}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{2}{section.6}\protected@file@percent }
-\gdef \@abspage@last{2}
+\citation{watts1998collective}
+\citation{petersen2022deep}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Operand selection with STE. The model uses learnable selector weights $\mathbf  {w}$ to generate a one-hot mask that selects a single operand from the binary input $\mathbf  {x}$ via a differentiable masking mechanism. }}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:operand-selection-ste}{{2}{3}{Operand selection with STE. The model uses learnable selector weights $\mathbf {w}$ to generate a one-hot mask that selects a single operand from the binary input $\mathbf {x}$ via a differentiable masking mechanism}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Operation Selection}{3}{subsection.2.3}\protected@file@percent }
+\citation{manhaeve2018deepproblog}
+\citation{serafini2016logic}
+\citation{dong2019nlm}
+\citation{riegel2020lnn}
+\citation{shazeer2017outrageously}
+\citation{fedus2022switch}
+\citation{zhou2022mixture}
+\citation{hazimeh2021dselect}
+\citation{lewis2021base}
+\citation{roller2021hash}
+\citation{bengio2013estimating}
+\citation{jang2016categorical,maddison2016concrete}
+\citation{shah2024improving}
+\citation{watts1998collective,ramanujan2020s}
+\citation{javaheripi2019swnet}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{4}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Logic Neural Networks and Symbolic Computation}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Mixture-of-Experts and Modular Routing}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Discrete Selection and Straight-Through Estimators}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Topological Structures in Deep Learning}{4}{subsection.3.4}\protected@file@percent }
+\citation{deng2012mnist}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{5}{section.4}\protected@file@percent }
+\newlabel{sec:experiments}{{4}{5}{Experiments}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Ablation Study: Operand Gradient Detachment}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Operand gradient ablation: detaching operand selection leads to poor performance, confirming its critical role in learning.}}{5}{table.1}\protected@file@percent }
+\newlabel{tab:operand-detach-results}{{1}{5}{Operand gradient ablation: detaching operand selection leads to poor performance, confirming its critical role in learning}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Depth Scaling}{5}{subsection.4.2}\protected@file@percent }
+\newlabel{subsec:Depth Scaling}{{4.2}{5}{Depth Scaling}{subsection.4.2}{}}
+\citation{piazza2014pyeda}
+\citation{brayton1984espresso}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Train and validation accuracy across 50 epochs for OSLGN models of varying depth. Depth-8 achieves the highest validation accuracy, but depth-4 shows more stable convergence.}}{6}{figure.3}\protected@file@percent }
+\newlabel{fig:accuracy}{{3}{6}{Train and validation accuracy across 50 epochs for OSLGN models of varying depth. Depth-8 achieves the highest validation accuracy, but depth-4 shows more stable convergence}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Gradient norm per layer in depth-4(left) and depth-8(right) model. Optimization of depth 8 is less stable, and layer-wise imbalance is more prominent.}}{6}{figure.4}\protected@file@percent }
+\newlabel{fig:gradnorm_line_depth4}{{4}{6}{Gradient norm per layer in depth-4(left) and depth-8(right) model. Optimization of depth 8 is less stable, and layer-wise imbalance is more prominent}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Logic Symbol Compression}{6}{subsection.4.3}\protected@file@percent }
+\citation{sipser2012introduction}
+\citation{watts1998collective}
+\citation{javaheripi2019swnet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Effect of Local Operand Initialization}{7}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Generalization.}{7}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Gradient Dynamics.}{7}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Learned Distant Connection.}{7}{section*.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Training and validation accuracy/loss over epochs for OSLGN with and without local operand initialization. Local init generalizes better.}}{7}{figure.5}\protected@file@percent }
+\newlabel{fig:smallworld_acc}{{5}{7}{Training and validation accuracy/loss over epochs for OSLGN with and without local operand initialization. Local init generalizes better}{figure.5}{}}
+\citation{watts1998collective,javaheripi2019swnet}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Layer-wise gradient norm trajectories with (top) and without (bottom) local operand initialization. Local init results in smoother gradient flow.}}{8}{figure.6}\protected@file@percent }
+\newlabel{fig:smallworld_gradnorm}{{6}{8}{Layer-wise gradient norm trajectories with (top) and without (bottom) local operand initialization. Local init results in smoother gradient flow}{figure.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{8}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Symbolic Structure and Modularity}{8}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Discrete Selection Mechanisms}{8}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Topology-Inspired Initialization}{8}{subsection.5.3}\protected@file@percent }
+\bibstyle{plain}
+\bibdata{references}
+\bibcite{bengio2013estimating}{{1}{}{{}}{{}}}
+\bibcite{brayton1984espresso}{{2}{}{{}}{{}}}
+\bibcite{deng2012mnist}{{3}{}{{}}{{}}}
+\bibcite{dong2019nlm}{{4}{}{{}}{{}}}
+\bibcite{fedus2022switch}{{5}{}{{}}{{}}}
+\bibcite{hazimeh2021dselect}{{6}{}{{}}{{}}}
+\bibcite{jang2016categorical}{{7}{}{{}}{{}}}
+\bibcite{javaheripi2019swnet}{{8}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Limitations}{9}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Future Work}{9}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}\protected@file@percent }
+\bibcite{lewis2021base}{{9}{}{{}}{{}}}
+\bibcite{maddison2016concrete}{{10}{}{{}}{{}}}
+\bibcite{manhaeve2018deepproblog}{{11}{}{{}}{{}}}
+\bibcite{petersen2022deep}{{12}{}{{}}{{}}}
+\bibcite{piazza2014pyeda}{{13}{}{{}}{{}}}
+\bibcite{ramanujan2020s}{{14}{}{{}}{{}}}
+\bibcite{riegel2020lnn}{{15}{}{{}}{{}}}
+\bibcite{roller2021hash}{{16}{}{{}}{{}}}
+\bibcite{serafini2016logic}{{17}{}{{}}{{}}}
+\bibcite{shah2024improving}{{18}{}{{}}{{}}}
+\bibcite{shazeer2017outrageously}{{19}{}{{}}{{}}}
+\bibcite{sipser2012introduction}{{20}{}{{}}{{}}}
+\bibcite{watts1998collective}{{21}{}{{}}{{}}}
+\bibcite{zhou2022mixture}{{22}{}{{}}{{}}}
+\citation{petersen2022deep}
+\@writefile{toc}{\contentsline {section}{\numberline {A}OSLGN Model Implementation}{10}{appendix.A}\protected@file@percent }
+\newlabel{appendix:model-code}{{A}{10}{OSLGN Model Implementation}{appendix.A}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Operand Selector and Logic Operators}{11}{subsection.A.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Operand selection and logic gate definitions.}{11}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Operator and Logic Layer Composition}{11}{subsection.A.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}Operator routing and composition of logic layers.}{11}{lstlisting.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Depth Scaling Summary Table}{12}{appendix.B}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Final and maximum validation accuracy, validation loss, and training accuracy for each depth after 50 epochs.}}{12}{table.2}\protected@file@percent }
+\newlabel{tab:depth_summary}{{2}{12}{Final and maximum validation accuracy, validation loss, and training accuracy for each depth after 50 epochs}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Symbolic Compression of Learned Logic Circuits}{12}{appendix.C}\protected@file@percent }
+\newlabel{appendix:symbolic}{{C}{12}{Symbolic Compression of Learned Logic Circuits}{appendix.C}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}Class-wise Boolean Expressions}{12}{subsection.C.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}Compression Results}{14}{subsection.C.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Comparison of logic operator counts before and after symbolic compression using PyEDA.}}{14}{table.3}\protected@file@percent }
+\newlabel{tab:symbolic_compression}{{3}{14}{Comparison of logic operator counts before and after symbolic compression using PyEDA}{table.3}{}}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\gdef \@abspage@last{21}

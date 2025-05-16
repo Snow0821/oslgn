@@ -1,0 +1,25 @@
+To evaluate the symbolic expressiveness and compressibility of OSLGN, we extract discrete Boolean expressions from trained models and analyze their logical redundancy. This process is made possible by the discrete nature of the architecture: each layer consists of a set of binary logic gates whose operand and operator selections are recorded during training.
+
+Following training, each class-specific computation path is reconstructed as a Boolean expression using recursive backtracking from the final output node to input variables. These expressions use only \texttt{and}, \texttt{or}, and \texttt{not} operators, forming a fully symbolic circuit.
+
+We apply logic minimization using the \texttt{pyeda.boolalg.espresso} package~\cite{piazza2014pyeda}, which internally interfaces with the well-known \textsc{Espresso} algorithm~\cite{brayton1984espresso} for two-level Boolean minimization. For each class expression, we compare the number of logic operators before and after simplification to assess compressibility.
+
+\vspace{0.5em}
+\noindent \textbf{Example: Class 0}
+
+\begin{quote}
+\begin{verbatim}
+[Original]
+((((not (x[462] or x[407]) and (x[482] or x[484]))) and 
+not ((False) and not ((x[578] or not x[363]) or not (x[107])))) or (False))
+
+[Compressed]
+((not x[462] and not x[407] and x[482]) or (not x[462] and 
+not x[407] and x[484]))
+\end{verbatim}
+\end{quote}
+
+While the compressed form often increases in length, this is due to disjunctive normal form (DNF) expansion that enumerates input conditions explicitly~\cite{sipser2012introduction}. The native OSLGN representation is already compact, demonstrating its structural efficiency.
+
+\vspace{0.5em}
+The remaining expressions, along with full source code and symbolic reconstruction routines, are provided in Appendix~\ref{appendix:symbolic} and available at our public Colab notebook:\footnote{\url{https://colab.research.google.com/drive/1VxulftRzLRj1Yg6C-vhmfE6X5jJpxfwJ}}

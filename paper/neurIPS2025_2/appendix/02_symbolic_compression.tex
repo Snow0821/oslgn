@@ -1,0 +1,144 @@
+\label{appendix:symbolic}
+
+The symbolic logic expressions for each output class were derived from the trained OSLGN model (depth=4, 10 epochs). Each expression was reconstructed by backtracking the operand/operator paths through each logic layer. The code implementation is fully available at:
+
+\begin{quote}
+\url{https://colab.research.google.com/drive/1VxulftRzLRj1Yg6C-vhmfE6X5jJpxfwJ}
+\end{quote}
+
+The original expressions from the model and their compressed forms are presented below.
+
+The symbolic logic expressions for each output class were derived from the trained OSLGN model (depth=4, 10 epochs). Each expression was reconstructed by backtracking the operand/operator paths through each logic layer. The expressions are presented below.
+
+\subsection{Class-wise Boolean Expressions}
+
+\begin{verbatim}
+[Class 0]
+
+Original
+((((not (x[462] or x[407]) and (x[482] or x[484]))) and 
+not ((False) and not ((x[578] or not x[363]) or not (x[107])))) or (False))
+
+Compressed
+((not x[462] and not x[407] and x[482]) or (not x[462] and 
+not x[407] and x[484]))
+
+
+[Class 1]
+Original   
+((((not (x[355] or x[494])) and not (x[261] or x[438])) and not 
+(((x[177] and not x[290]) or (False)) or ((x[347] and not x[234]) or (False)))))
+
+Compressed 
+((not x[355] and not x[494] and not x[261] and not x[438] and 
+x[290] and x[234]) or (not x[355] and not x[494] and not x[261] and not 
+x[438] and not x[177] and x[234]) or (not x[355] and not x[494] and not 
+x[261] and not x[438] and not x[177] and not x[347]) or (not x[355] and not 
+x[494] and not x[261] and not x[438] and x[290] and not x[347]))
+
+[Class 2]
+Original
+((((not x[372] and x[541]) and not (x[347] and not x[556]))) or 
+((not (x[319] or x[276])) and ((not x[343] and x[511]))))
+
+Compressed
+((not x[372] and x[541] and x[556]) or (not x[319] and not x[276] and not 
+x[343] and x[511]) or (not x[347] and not x[372] and x[541]))
+
+[Class 3]
+Original
+(not (not (((x[350] or x[322]) and (x[152] or x[179])) or 
+((x[649]) or (not x[455] and x[564])))))
+
+Compressed
+(x[649] or (x[322] and x[152]) or (x[350] and x[152]) or 
+(not x[455] and x[564]) or (x[350] and x[179]) or (x[322] and x[179]))
+
+[Class 4]
+Original  
+(not (not ((not (((x[211] and not x[68]) or (False)) or 
+(x[567] or x[127]))) and ((x[401] or x[429]) and (not (x[70] or x[747]))))) or 
+(((not (x[568] or x[595])) and (x[454]))))
+
+Compressed
+((x[68] and not x[567] and not x[127] and x[429] and not x[70] and not 
+x[747]) or (not x[568] and not x[595] and x[454]) or (x[68] and not 
+x[567] and not x[127] and x[401] and not x[70] and not x[747]) or 
+(not x[211] and not x[567] and not x[127] and x[401] and not x[70] and not 
+x[747]) or (not x[211] and not x[567] and not x[127] and x[429] and not 
+x[70] and not x[747]))
+
+[Class 5]
+Original
+(not (((not x[562] and x[517]) and (not x[562] and x[517])) and 
+((not x[562] and x[517]) and (not x[562] and x[517]))) and 
+(not ((x[246]) and (x[356] and not x[587])) and (not (x[355]) and 
+((x[191] and not x[276]) or (False)))))
+
+Compressed
+((not x[355] and not x[276] and not x[517] and x[587] and x[191]) or 
+(not x[355] and not x[276] and x[562] and not x[356] and x[191]) or 
+(not x[355] and not x[276] and x[562] and x[587] and x[191]) or 
+(not x[355] and not x[276] and x[562] and not x[246] and x[191]) or 
+(not x[355] and not x[276] and not x[517] and not x[356] and x[191]) or 
+(not x[355] and not x[276] and not x[517] and not x[246] and x[191]))
+
+[Class 6]
+Original
+(not ((((x[651] or x[658]))) and (((x[651] or x[658])))))
+
+Compressed
+(not x[651] and not x[658])
+
+[Class 7]
+Original
+((((not (x[377] or x[404])))))
+
+Compressed
+(not x[377] and not x[404])
+
+[Class 8]
+Original   
+(True)
+
+Compressed 
+(not x[377] and not x[404])
+
+[Class 9]
+Original
+(not ((((x[149] and not x[127]) and not (x[567] or x[127])) or (False)) and 
+not ((x[714] and not x[203]))) or ((((x[149] and not x[127]) and 
+not (x[396] or not x[126])) or (False)) and ((not x[567] and x[711]))))
+
+Compressed
+(x[567] or x[127] or not x[149] or (x[714] and not x[203]) or 
+(not x[396] and x[126] and x[711]))
+
+\end{verbatim}
+\subsection{Compression Results}
+
+\begin{table}[H]
+    \caption{Comparison of logic operator counts before and after symbolic compression using PyEDA.}
+    \label{tab:symbolic_compression}
+    \centering
+    \small
+    \begin{tabular}{c|cccc}
+        \toprule
+        \textbf{Class} & \textbf{Original Ops} & \textbf{Compressed Ops} & \textbf{Ratio} & \textbf{Rate (\%)} \\
+        \midrule
+        0 & 13 & 9 & 1.44 & 30.77 \\
+        1 & 14 & 43 & 0.33 & -207.14 \\
+        2 & 12 & 15 & 0.8 & -25 \\
+        3 & 9 & 11 & 0.82 & -22.22 \\
+        4 & 17 & 46 & 0.37 & -170.59 \\
+        5 & 23 & 48 & 0.48 & -108.7 \\
+        6 & 18 & 62 & 0.29 & -244.4 \\
+        7 & 2 & 3 & 0.67 & -50 \\
+        8 & 0 & 3 & 0 & 0 \\
+        9 & 22 & 10 & 2.2 & 54.55 \\
+        \bottomrule
+    \end{tabular}
+
+\end{table}
+
+\noindent These results confirm that OSLGN produces structurally compact logic by design, rather than relying on post-hoc symbolic simplification.

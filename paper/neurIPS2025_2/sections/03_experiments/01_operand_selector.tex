@@ -1,0 +1,28 @@
+To assess the importance of gradient flow through operand selection, we compare two variants of the OSLGN model that share identical architectures but differ in how operands contribute to learning:
+
+\begin{itemize}
+    \item \textbf{Model A (STE-enabled)}: Operands are selected using an $\arg\max$ mask with straight-through estimation, enabling gradients to update operand selectors.
+    \item \textbf{Model B (Detached)}: The outputs of operand selectors are detached from the computation graph, preventing any gradient flow into operand selection.
+\end{itemize}
+
+Both models were trained on binarized MNIST using the same initialization, optimizer, and training schedule.  
+Table~\ref{tab:operand-detach-results} shows that Model A achieves significantly higher performance, reaching a test accuracy of 42.2\% compared to just 8.9\% for Model B.  
+This suggests that operand selection must remain differentiable for the network to learn meaningful logic compositions.
+
+To ensure logical validity, all outputs of the logic gate layer were enforced to be strictly binary (\texttt{0} or \texttt{1}) using runtime assertions during training.  
+The full training script and model code are publicly available via Colab\footnote{\url{https://colab.research.google.com/drive/1ykNB-ezkUh9NhR1eGCZwtzsapPIp_BtM}}, and a complete implementation of the model is included in Appendix~\ref{appendix:model-code}.
+
+\begin{table}[H]
+    \caption{Operand gradient ablation: detaching operand selection leads to poor performance, confirming its critical role in learning.}
+    \label{tab:operand-detach-results}
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Model} & \textbf{Train Accuracy} & \textbf{Test Accuracy} \\
+        \midrule
+        Model A (STE-enabled) & 43.3\% & 42.2\% \\
+        Model B (Detached)    & 10.0\% & 8.9\% \\
+        \bottomrule
+    \end{tabular}
+
+\end{table}

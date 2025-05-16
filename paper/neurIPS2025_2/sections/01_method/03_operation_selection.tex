@@ -1,0 +1,7 @@
+While Petersen et al.~\cite{petersen2022deep} utilize continuous gate weighting and perform post-hoc logic gate substitution after training, our approach incorporates a straight-through estimator (STE) mechanism that enforces discrete operator selection during training. This results in a train-time quantization effect, where symbolic logic structures are formed during optimization rather than approximated retrospectively.
+
+Specifically, we use a hard one-hot mask over the operator logits with gradient-preserving relaxation:
+\[
+\tilde{\pi} = \text{onehot}(\arg\max(w)) - \text{detach}(w) + w
+\]
+which yields a discrete gate selection in the forward pass, while enabling gradient-based optimization. This tight coupling between learning and logical structure avoids potential mismatch between continuous representations and their final symbolic form.

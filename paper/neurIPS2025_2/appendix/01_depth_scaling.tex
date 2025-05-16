@@ -1,0 +1,19 @@
+To complement the figures in Section~\ref{subsec:Depth Scaling}, Table~\ref{tab:depth_summary} presents a summary of performance metrics for each evaluated depth. 
+We report the final and peak validation accuracy across 50 training epochs, along with final validation loss and training accuracy. 
+This helps assess both convergence stability and generalization behavior. 
+Notably, while depth-4 exhibits both high final and peak accuracy, deeper networks like depth-8 show a wider gap between final and peak accuracy, indicating slower convergence or slight overfitting.
+
+\begin{table}[H]
+\centering
+\caption{Final and maximum validation accuracy, validation loss, and training accuracy for each depth after 50 epochs.}
+\label{tab:depth_summary}
+\begin{tabular}{rlll}
+\toprule
+ Depth &                  Val Acc & Val Loss & Train Acc \\
+\midrule
+     2 & \textbf{0.4492} / 0.5232 &   1.7693 &    0.4272 \\
+     4 & \textbf{0.5330} / 0.5802 &   1.7815 &    0.5073 \\
+     8 & \textbf{0.5357} / 0.5958 &   1.7304 &    0.5354 \\
+\bottomrule
+\end{tabular}
+\end{table}

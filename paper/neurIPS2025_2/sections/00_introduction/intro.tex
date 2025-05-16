@@ -1,0 +1,18 @@
+Neural networks have achieved remarkable success across a wide range of tasks, yet their internal representations are often entangled and difficult to modularize. While neural-symbolic reasoning and differentiable logic circuits have made progress toward combining symbolic structure with trainability~\cite{petersen2022deep, manhaeve2018deepproblog}, most architectures still struggle to express logic-based computation in a compositional and scalable way.
+
+In this work, we introduce \textit{Operand Selective Logic Gated Networks (OSLGN)}, a symbolic neural architecture where each layer is a collection of binary logic gates. Each gate selects two operands from the previous layer via a differentiable $\arg\max$ mechanism (using a straight-through estimator), and applies one of 16 predefined binary logic operations (e.g., AND, OR, XOR). While prior works have focused on differentiable operator selection~\cite{petersen2022deep}, our key contribution is to enable operand-level routing. This allows each gate to learn not only what operation to apply, but also which inputs to apply it to—forming discrete, modular logic circuits.
+
+To encourage the emergence of localized symbolic structure, we initialize operand selectors with a Gaussian proximity bias inspired by small-world connectivity~\cite{watts1998collective, javaheripi2019swnet}. This inductive prior promotes compositional logic among nearby nodes while still allowing long-range dependencies to emerge through learning.
+
+We further interpret our architecture as a fine-grained form of Mixture-of-Experts~\cite{shazeer2017outrageously}, where selection happens at the operand level within each logic gate. This facilitates sparse symbolic computation with minimal overhead.
+
+\paragraph{Contributions.}
+\begin{itemize}
+    \item We propose Operand-Selective Logic Gated Networks (OSLGN), a symbolic neural architecture that builds differentiable logic circuits via operand and operator selection.
+    
+    \item We introduce an operand selection mechanism that enables gate-level modularity. While our operator routing builds on prior differentiable logic gates~\cite{petersen2022deep}, operand selection is independently learned and crucial for symbolic structure.
+    
+    \item We incorporate a proximity-biased operand initialization scheme inspired by small-world networks, promoting symbolic locality and stable training dynamics.
+    
+    \item We show that OSLGN can be fully translated into compact logic expressions post-training, demonstrating the feasibility of distilling a neural network into an explicit symbolic circuit.
+\end{itemize}

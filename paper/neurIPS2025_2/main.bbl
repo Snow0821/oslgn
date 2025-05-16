@@ -1,8 +1,137 @@
-\begin{thebibliography}{0}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{10}
+
+\bibitem{bengio2013estimating}
+Yoshua Bengio, Nicholas L{\'e}onard, and Aaron Courville.
+\newblock Estimating or propagating gradients through stochastic neurons for
+  conditional computation.
+\newblock {\em arXiv preprint arXiv:1308.3432}, 2013.
+
+\bibitem{brayton1984espresso}
+Robert~K Brayton, Gary~D Hachtel, Curtis~T McMullen, and Alberto
+  Sangiovanni-Vincentelli.
+\newblock Logic minimization algorithms for vlsi synthesis.
+\newblock In {\em Proceedings of the 21st Design Automation Conference}, pages
+  1--6, 1984.
+
+\bibitem{deng2012mnist}
+Li~Deng.
+\newblock The mnist database of handwritten digit images for machine learning
+  research.
+\newblock {\em IEEE Signal Processing Magazine}, 29(6):141--142, 2012.
+
+\bibitem{dong2019nlm}
+Honghua Dong, Jiayuan Mao, Tian Lin, Chong Wang, Lihong Li, and Denny Zhou.
+\newblock Neural logic machines.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2019.
+
+\bibitem{fedus2022switch}
+William Fedus, Barret Zoph, and Noam Shazeer.
+\newblock Switch transformers: Scaling to trillion parameter models with simple
+  and efficient sparsity.
+\newblock {\em Journal of Machine Learning Research}, 23(120):1--39, 2022.
+
+\bibitem{hazimeh2021dselect}
+Hussein Hazimeh, Zhe Zhao, Aakanksha Chowdhery, Maheswaran Sathiamoorthy, Yihua
+  Chen, Rahul Mazumder, Lichan Hong, and Ed~Chi.
+\newblock Dselect-k: Differentiable selection in the mixture of experts with
+  applications to multi-task learning.
+\newblock {\em Advances in Neural Information Processing Systems},
+  34:29335--29347, 2021.
+
+\bibitem{jang2016categorical}
+Eric Jang, Shixiang Gu, and Ben Poole.
+\newblock Categorical reparameterization with gumbel-softmax.
+\newblock {\em arXiv preprint arXiv:1611.01144}, 2016.
+
+\bibitem{javaheripi2019swnet}
+Mojan Javaheripi, Bita~Darvish Rouhani, and Farinaz Koushanfar.
+\newblock Swnet: Small-world neural networks and rapid convergence.
+\newblock {\em arXiv preprint arXiv:1904.04862}, 2019.
+
+\bibitem{lewis2021base}
+Mike Lewis, Shruti Bhosale, Tim Dettmers, Naman Goyal, and Luke Zettlemoyer.
+\newblock Base layers: Simplifying training of large, sparse models.
+\newblock In {\em Proceedings of the 38th International Conference on Machine
+  Learning}, pages 6265--6274, 2021.
+
+\bibitem{maddison2016concrete}
+Chris~J Maddison, Andriy Mnih, and Yee~Whye Teh.
+\newblock The concrete distribution: A continuous relaxation of discrete random
+  variables.
+\newblock {\em arXiv preprint arXiv:1611.00712}, 2016.
+
+\bibitem{manhaeve2018deepproblog}
+Robin Manhaeve and et~al.
+\newblock Deepproblog: Neural probabilistic logic programming.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  3749--3759, 2018.
+
+\bibitem{petersen2022deep}
+Felix Petersen, Christian Borgelt, Hilde Kuehne, and Oliver Deussen.
+\newblock Deep differentiable logic gate networks.
+\newblock {\em Advances in Neural Information Processing Systems},
+  35:2006--2018, 2022.
+
+\bibitem{piazza2014pyeda}
+Christopher Piazza.
+\newblock Pyeda: Python electronic design automation library.
+\newblock \url{https://github.com/cjdrake/pyeda}, 2014.
+
+\bibitem{ramanujan2020s}
+Vivek Ramanujan, Mitchell Wortsman, Aniruddha Kembhavi, Ali Farhadi, and
+  Mohammad Rastegari.
+\newblock What's hidden in a randomly weighted neural network?
+\newblock In {\em Proceedings of the IEEE/CVF conference on computer vision and
+  pattern recognition}, pages 11893--11902, 2020.
+
+\bibitem{riegel2020lnn}
+Ryan Riegel, Alexander Gray, Francois Luus, Sunday Takang, Thabang Modise,
+  Anelda Lutge, Tyson Anderson, Marthinus Schoeman, Biyela Simpiwe, Kory Cohen,
+  and Benjamin Nel.
+\newblock Logical neural networks.
+\newblock {\em arXiv preprint arXiv:2006.13155}, 2020.
+
+\bibitem{roller2021hash}
+Stephen Roller, Sainbayar Sukhbaatar, Arthur Szlam, and Jason Weston.
+\newblock Hash layers for large sparse models.
+\newblock In {\em Advances in Neural Information Processing Systems},
+  volume~34, pages 19314--19326, 2021.
+
+\bibitem{serafini2016logic}
+Luciano Serafini and Artur~d'Avila Garcez.
+\newblock Logic tensor networks: Deep learning and logical reasoning from data
+  and knowledge.
+\newblock {\em arXiv preprint arXiv:1606.04422}, 2016.
+
+\bibitem{shah2024improving}
+Rushi Shah, Mingyuan Yan, Michael~Curtis Mozer, and Dianbo Liu.
+\newblock Improving discrete optimisation via decoupled straight-through
+  gumbel-softmax.
+\newblock {\em arXiv preprint arXiv:2410.13331}, 2024.
+
+\bibitem{shazeer2017outrageously}
+Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le,
+  Geoffrey Hinton, and Jeff Dean.
+\newblock Outrageously large neural networks: The sparsely-gated
+  mixture-of-experts layer.
+\newblock {\em arXiv preprint arXiv:1701.06538}, 2017.
+
+\bibitem{sipser2012introduction}
+Michael Sipser.
+\newblock {\em Introduction to the Theory of Computation}.
+\newblock Cengage Learning, 2012.
+
+\bibitem{watts1998collective}
+Duncan~J Watts and Steven~H Strogatz.
+\newblock Collective dynamics of ‘small-world’networks.
+\newblock {\em nature}, 393(6684):440--442, 1998.
+
+\bibitem{zhou2022mixture}
+Yanqi Zhou, Tao Lei, Hanxiao Liu, Nan Du, Yanping Huang, Vincent Zhao, Andrew~M
+  Dai, Quoc~V Le, James Laudon, et~al.
+\newblock Mixture-of-experts with expert choice routing.
+\newblock {\em Advances in Neural Information Processing Systems},
+  35:7103--7114, 2022.
 
 \end{thebibliography}

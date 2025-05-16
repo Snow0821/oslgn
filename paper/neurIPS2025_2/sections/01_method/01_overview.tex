@@ -1,0 +1,37 @@
+Operand Selective Logic Gated Neural Network (OSLGN) is a modular architecture that performs binary logic operations between selected operand features using a learned differentiable selection mechanism. The core design of OSLGN mimics the structure of a logical expression tree, where each logic unit (or layer) selects two operands from the input feature space and applies a logic gate to compute the output.
+
+Each OSLGN layer consists of three components: two operand selectors and one operator selector. The operand selectors learn to identify and extract the most relevant features from the input by applying a sparse one-hot mask generated via an argmax operation over linear projections, smoothed using the straight-through estimator (STE) to maintain differentiability. These selectors ensure that the network can choose which elements of the input vector should interact logically at each step.
+
+The selected operands are then passed to the operator module, which computes a binary logic operation between them. Instead of hardcoding a specific logic gate, the operator is learned as a selection over a set of 16 predefined binary logic functions (e.g., AND, OR, XOR, NAND, etc.). Unlike softmax method from petersen's research\cite{petersen2022deep} an argmax-based weighting is applied to the outputs of all gates, followed by binarization through a custom STE, allowing the model to learn with consisting logic gate identity.
+
+By stacking multiple OSLGN layers, the architecture is able to represent hierarchical logic computations, while maintaining symbolic nature. Unlike standard neural networks, which rely on additive and multiplicative transformations, OSLGN explicitly builds logical reasoning paths via structured operand and operator selection.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+      node distance=1cm and 0.9cm,
+      every node/.style={draw, minimum width=1.7cm, minimum height=0.8cm, font=\scriptsize, align=center},
+      arrow/.style={-{Latex[length=1.5mm]}, thick}
+    ]
+        \node (input) {Input $\mathbf{x}$};
+        \node (os1) [right=of input] {Operand Selector 1};
+        \node (os2) [below=of os1] {Operand Selector 2};
+        \node (op) [right=2.2cm of os1] {Operator Selector};
+        \node (out) [right=of op] {Output};
+
+        \draw[arrow] (input) -- (os1);
+        \draw[arrow] (input) |- (os2);
+        \draw[arrow] (os1) -- (op);
+        \draw[arrow] (os2) -- (op);
+        \draw[arrow] (op) -- (out);
+    \end{tikzpicture}
+    \caption{
+    A single OSLGN logic unit. Operand selectors choose relevant inputs, and a differentiable operator module applies one of 16 logic gates.
+    }
+    \label{fig:oslgn-block}
+    \end{figure}
+    
+To improve training stability and promote locally coherent symbolic structures, we initialize the operand selectors using a Gaussian neighborhood prior inspired by small-world network topology~\cite{watts1998collective, javaheripi2019swnet}. This bias encourages each selector to initially focus on spatially adjacent input features, facilitating modular logic formation while allowing long-range dependencies to emerge via learning.
+
+
+    

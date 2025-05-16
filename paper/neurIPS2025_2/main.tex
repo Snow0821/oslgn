@@ -11,7 +11,29 @@
 \usepackage{microtype}      % microtypography
 \usepackage{xcolor}         % colors
 
-\title{Operand Selective Logic Gate Neural Network}
+%privately included
+\usepackage{tikz}
+\usepackage{float} 
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{amsmath}    
+\usepackage{amsfonts} 
+\usepackage{amssymb}    
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  tabsize=2
+}
+
+\title{Operand Selective Logic Gate Network}
 
 \author{%
   Soon Ho~Choi\\
@@ -48,30 +70,61 @@
 \input{sections/00_abstract}
 
 \section{Introduction}
-\section{Model Architecture}
-\subsection{Overview}
-\subsection{Operand Selection}
-\subsection{Operation Selection}
+  \input{sections/00_introduction/intro}
+\section{OSLGN Architecture}
+  \subsection{Overview}
+    \input{sections/01_method/01_overview}
+  \subsection{Operand Selection}
+    \input{sections/01_method/02_operand_selection}
+  \subsection{Operation Selection}
+    \input{sections/01_method/03_operation_selection}
 \section{Related Work}
-\subsection{Binary and Ternary Neural Networks}
-\subsection{Differentiable Logic Gate Networks}
-\subsection{Operand/Operator Selection in Modular Systems}
-\subsection{Neural-Symbolic Reasoning}
-\section{Experiments}
-\subsection{MNIST}
-\subsection{CIFAR10}
-\subsection{CIFAR100}
+  \subsection{Logic Neural Networks and Symbolic Computation}
+    \input{sections/02_related_work/01_lnn}
+  \subsection{Mixture-of-Experts and Modular Routing}
+    \input{sections/02_related_work/02_moe}
+  \subsection{Discrete Selection and Straight-Through Estimators}
+    \input{sections/02_related_work/03_ste}
+  \subsection{Topological Structures in Deep Learning}
+    \input{sections/02_related_work/04_small_world}
+\section{Experiments}\label{sec:experiments}
+    \input{sections/03_experiments/00_overview}
+  \subsection{Ablation Study: Operand Gradient Detachment}
+    \input{sections/03_experiments/01_operand_selector}
+  \subsection{Depth Scaling}\label{subsec:Depth Scaling}
+    \input{sections/03_experiments/02_scalability}
+  \subsection{Logic Symbol Compression}
+    \input{sections/03_experiments/03_compression}
+  \subsection{Effect of Local Operand Initialization}
+    \input{sections/03_experiments/04_small_world}
 \section{Discussion}
-\subsection{Interpretability and Symbolic Traceability}
-\subsection{Comparison with Related Architectures}
-\subsection{Limitations and Future Extensions}
+  \subsection{Symbolic Structure and Modularity}
+    \input{sections/04_discussion/01_structure}
+  \subsection{Discrete Selection Mechanisms}
+    \input{sections/04_discussion/02_selection}
+  \subsection{Topology-Inspired Initialization}
+    \input{sections/04_discussion/03_topology}
+  \subsection{Limitations}
+    \input{sections/04_discussion/04_limitation}
+  \subsection{Future Work}
+    \input{sections/04_discussion/05_future_work}
+
 \section{Conclusion}
+  \input{sections/05_conclusion/conclusion}
 
-
-
-\bibliographystyle{plainnat}
+\bibliographystyle{plain}
 \bibliography{references}
 
-\input{appendix/00_python_code}
+\appendix
+\section{OSLGN Model Implementation}
+  \input{appendix/00_oslgn_model}
+\section{Depth Scaling Summary Table}
+  \input{appendix/01_depth_scaling}
+\section{Symbolic Compression of Learned Logic Circuits}
+  \input{appendix/02_symbolic_compression}
+
+\newpage
+\section*{NeurIPS Paper Checklist}
+  \input{checklist.tex}
 
 \end{document}

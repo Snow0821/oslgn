@@ -1,0 +1,47 @@
+In each OSLGN layer, the operand selection modules are responsible for choosing two input subcomponents from the feature vector $\mathbf{x} \in \mathbb{R}^d$ that will participate in a logical operation. We refer to these modules as Operand Selector 1 (OS1) and Operand Selector 2 (OS2). Each selector computes a linear projection over the input and applies a hard selection via the \texttt{argmax} function, followed by a one-hot masking operation.
+
+Since \texttt{argmax} is non-differentiable, we apply the straight-through estimator (STE) to allow gradient flow during training. Specifically, we subtract the detached projection from the one-hot mask and add back the original projection, enabling gradients to flow through the selected path while preserving the discrete behavior in the forward pass:
+\[
+\tilde{w} = \text{onehot}(\arg\max(w)) - w.detach() + w
+\]
+where $w$ denotes the linear projection weights.
+
+This masked weight vector is then used in a standard linear transformation:
+\[
+\mathbf{a} = \tilde{w} \cdot \mathbf{x}
+\]
+The same mechanism is applied to both operand selectors (OS1 and OS2), producing two selected values $\mathbf{a}$ and $\mathbf{b}$ which are subsequently passed to the operator module.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+      node distance=1.1cm and 1.5cm,
+      every node/.style={draw, font=\scriptsize, minimum width=2.6cm, minimum height=0.9cm, align=center},
+      arrow/.style={->, thick}
+    ]
+    
+    \node (w) {Selector weights $\mathbf{w} = [0.1,\ 2.3,\ -1.0]$};
+    \node (x) [below=of w] {Input $\mathbf{x} = [a, b, c]$};
+    
+    \node (argmax) [right=of w, xshift=2.8cm] {Argmax $\rightarrow 1$};
+    \node (onehot) [below=of argmax] {One-hot $[0,\!1,\!0]$};
+    
+    \node (select) [below=of onehot] {Selected operand \\ Output $\mathbf{y} = \tilde{w} \cdot \mathbf{x} = b$};
+    
+    \draw[arrow] (w) -- (argmax);
+    \draw[arrow] (argmax) -- (onehot);
+    \draw[arrow] (onehot) -- (select);
+    \draw[arrow] (x) |- (select);
+    
+    \end{tikzpicture}
+    \caption{
+    Operand selection with STE. The model uses learnable selector weights $\mathbf{w}$ to generate a one-hot mask that selects a single operand from the binary input $\mathbf{x}$ via a differentiable masking mechanism.
+    }
+    \label{fig:operand-selection-ste}
+\end{figure}
+
+To promote locally structured operand selection, we initialize the selector weights $\mathbf{w}$ using a Gaussian prior centered around each output index. Specifically, for the $i$-th row of OS1 and OS2, the weights are initialized as
+\[
+w_{ij} = \exp\left( -\frac{(j - c_i)^2}{2\sigma^2} \right), \quad c_i = (i + s) \bmod d
+\]
+where $d$ is the input dimension, $s$ is a small center shift (e.g., $s=0$ for OS1, $s=1$ for OS2), and $\sigma$ controls the locality. This initialization introduces a topological bias similar to small-world networks~\cite{watts1998collective}, favoring local operand pairing early in training.

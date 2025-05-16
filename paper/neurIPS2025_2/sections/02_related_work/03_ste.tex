@@ -1,0 +1,7 @@
+Training neural networks with discrete operations poses challenges due to non-differentiability. The Straight-Through Estimator (STE)~\cite{bengio2013estimating} addresses this by treating discrete operations as identity functions during backpropagation, enabling gradient flow through non-differentiable units.
+
+The Gumbel-Softmax trick~\cite{jang2016categorical, maddison2016concrete} offers a continuous relaxation of categorical distributions, allowing differentiable sampling. Combining STE with Gumbel-Softmax, the Straight-Through Gumbel-Softmax (ST-GS) estimator performs discrete sampling in the forward pass and uses the relaxed distribution for gradient computation in the backward pass.
+
+Recent advancements, such as Decoupled ST-GS~\cite{shah2024improving}, introduce separate temperature parameters for forward and backward passes, enhancing gradient fidelity and training stability.
+
+In our work, we employ argmax-based discrete selection with STE for operand and operator routing within logic gates. This approach ensures the construction of symbolizable logic circuits. While Gumbel-Softmax-based methods demonstrated faster convergence in preliminary experiments, they exhibited instability in training dynamics. Future work may explore integrating advanced techniques like Decoupled ST-GS to balance convergence speed and training stability.
